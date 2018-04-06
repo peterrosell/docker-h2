@@ -5,7 +5,7 @@ H2_VERSION=2018-03-18
 DOCKER_IMAGE_NAME=dockerregistry.pagero.local/h2
 
 build: 
-	docker build --build-arg VERSION=$(H2_VERSION) --force-rm=true --no-cache=true -t=dockerregistry.pagero.com/h2 .
+	docker build --build-arg VERSION=$(H2_VERSION) --force-rm=true --no-cache=true -t=$(DOCKER_IMAGE_NAME) .
 
 run:
 	DATA_DIR=$(mktemp -d) \
