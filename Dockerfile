@@ -1,12 +1,9 @@
-FROM java:7
+FROM openjdk:8
 
-# A merge of:
-#  https://github.com/zhilvis/docker-h2
-#  https://github.com/zilvinasu/h2-dockerfile
+LABEL maintainer="Pagero RnD <rnd@pagero.com>"
+ARG VERSION=MUST_BE_SET_WITH_BUILD_ARG_FLAG
 
-MAINTAINER Oscar Fonts <oscar.fonts@geomati.co>
-
-ENV DOWNLOAD https://storage.googleapis.com/google-code-archive-downloads/v2/code.google.com/h2database/h2-2009-09-26.zip
+ENV DOWNLOAD http://www.h2database.com/h2-${VERSION}.zip
 ENV DATA_DIR /opt/h2-data
 
 RUN curl ${DOWNLOAD} -o h2.zip \
